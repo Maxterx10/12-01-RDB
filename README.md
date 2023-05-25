@@ -5,24 +5,14 @@
 
 employee (
 - id_employee, primary key, serial,
-- last_name, varchar(50)
-- id_first_name, foreign key, integer
-- id_patronymic, foreign key, integer
+- last_name, varchar(50),
+- first_name, varchar(50),
+- patronymic, varchar(50),
 - hire_date, date
 - salary, real
 - id_position, foreign key, integer
 - id_structural_division, foreign key, integer
 - id_branch_office, foreign key, integer  
-)
-
-first_name (
-- id_first_name, primary key, serial,
-- name, varchar(50)  
-)
-
-patronymic (
-- id_patronymic, primary key, serial,
-- patronymic_name, varchar(50)  
 )
 
 position (
@@ -43,7 +33,20 @@ division_type (
 
 branch_office (
 - id_branch_office, primary key, serial,
-- branch_office_address, varchar(max)  
+- id_region, foreign key, integer,
+- id_city, foreign key, integer,
+- branch_office_address, varchar(500)  
+)
+
+region (
+- id_region,  primary key, serial,
+- region_name, varchar(100)  
+)
+
+city (
+- id_city, primary key, serial,
+- id_region, primary key, integer,
+- city_name, varchar(50)  
 )
 
 project (
